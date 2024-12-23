@@ -20,7 +20,6 @@
 
 # loading libraries
 library(epiR)
-library(dplyr)
 
 # We will use the epi.2by2(), which uses 3 dimensions to estimate OR trough stratification
 # exposure and outcomes MUST be coded 1=yes, 2=no. just binaries
