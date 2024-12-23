@@ -3,7 +3,7 @@
 #
 # Date: Dec 2024
 # R version 4.4.1 (2024-06-14 ucrt) -- "Race for Your Life"
-# Eou R version: ‘2.0.76’
+# epiR version: ‘2.0.76’
 #
 # Background: Mantel Haenszel stratified analysis is a classic method to adjust 
 # for confounding in epidemiology. 
