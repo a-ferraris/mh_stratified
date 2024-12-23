@@ -50,9 +50,9 @@ for(i in adjustment_c){
   adjustment_formula <- paste0(adjustment_formula, i, " + ")
 }
 
-# we expect that the number of dimensions would be 2 (carb) and 3 (gears) = 6. 
+# calculating the number of tables to create by stratification. 
 n_tables <- 1 # basic starting point 
-
+# this loop multiplies the number of levels of your confounder variables 
 for(i in adjustment_c){
   dimensions <- as.numeric(
     length(
@@ -65,7 +65,7 @@ for(i in adjustment_c){
   
   rm(dimensions)
 }
-
+# check whether it is ok. 
 n_tables
 
 # preparing data for analysis----
