@@ -116,7 +116,8 @@ exp(regression$coefficients[[2]])
 # crash = 1/2 variable created for this example. 
 # am = automatic or manual, 0 and 1 respectively.
 # stratifying variables: carb (number of carburetors, we will dicotomize in >3 or <=3)
-# gears = number of forward gears in the transmision. 3, 4 or 5. 
+# gears = number of forward gears in the transmision. 3, 4 or 5.
+# vs type of engine V-shaped (0) or straight (1)
 
 # first, we transform exposure and outcome vars
 set.seed(788622) # see world cup champion for these years. '78, '86, '22
