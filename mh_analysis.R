@@ -108,7 +108,7 @@ adjustment_formula <- substr(adjustment_formula, start = 1,
 
 regression <- glm(as.formula(adjustment_formula), 
                   data = data_mh, 
-                  family = poisson)
+                  family = binomial) # RR tends to differ more between MH and log reg
 
 exp(regression$coefficients[[2]])
 
@@ -202,7 +202,7 @@ adjustment_formula <- substr(adjustment_formula, start = 1,
 
 regression <- glm(as.formula(adjustment_formula), 
                   data = data_mh, 
-                  family = poisson)
+                  family = binomial) # RR tends to differ more between MH and log reg
 
 exp(regression$coefficients[[2]])
 
