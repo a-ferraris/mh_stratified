@@ -35,6 +35,11 @@ library(epiR)
 # code starts ----
 
 data_mh <- your_dataframe
+
+# epi2by2() uses 1/2 format.
+data_mh$your_outcome[data_mh$your_outcome == 0] <- 2
+data_mh$your_exposure[data_mh$your_exposure == 0] <- 2
+
 outcome_c <- as.character(your_outcome_name)
 exposure_c <- as.character(your_exposure_name)
  
@@ -49,6 +54,10 @@ adjustment_formula <- paste0("~ ", outcome_c, " + ",
 for(i in adjustment_c){
   adjustment_formula <- paste0(adjustment_formula, i, " + ")
 }
+
+adjustment_formula <- substr(adjustment_formula, start = 1, 
+                             stop = nchar(adjustment_formula) - 3) # corrects + sign at the end. 
+adjustment_formula # check that everything looks ok. 
 
 # calculating the number of tables to create by stratification. 
 n_tables <- 1 # basic starting point 
@@ -68,11 +77,7 @@ for(i in adjustment_c){
 # check whether it is ok. 
 n_tables
 
-# preparing data for analysis----
-adjustment_formula <- substr(adjustment_formula, start = 1, 
-                             stop = nchar(adjustment_formula) - 3)
-adjustment_formula # check that everything looks ok. 
-
+# create array of tables, stratified by confounders combinations. 
 mh_array <- xtabs(as.formula(adjustment_formula), 
                   data = mh_array) # stratifying 
 mh_array # visualize tables for errors. Outcome should be on the column side, 
